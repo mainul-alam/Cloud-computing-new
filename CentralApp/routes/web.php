@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index'); # this is the welcome page request route
 
+###### we will work here later #####
 
+Auth::routes(); # this is the rout for any kind of authetication job
+
+############
+
+Route::get('/home', 'HomeController@index')->name('home'); # this is requst hadeler after authetication 
 
 
 
@@ -27,18 +33,8 @@ Route::get('/', 'PagesController@index');
 
 
 ###### just keep them 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+#
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
