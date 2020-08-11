@@ -33,3 +33,9 @@ php artisan ui react --auth
 
 npm install
 npm run dev
+
+- make controller for pages becasue (request -> rout -> controller ->views/model) 
+
+php artisan make:controller PagesController
+
+- For regirtration added an option 
