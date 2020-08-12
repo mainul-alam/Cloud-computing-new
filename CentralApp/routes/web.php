@@ -23,7 +23,7 @@ Auth::routes(); # this is the rout for any kind of authetication job
 
 Route::get('/home', 'HomeController@index')->name('home'); # this is requst hadeler after authetication 
 
-
+Route::resource('posts', 'PostsController');
 
 
 

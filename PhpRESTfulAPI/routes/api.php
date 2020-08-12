@@ -17,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('jobs','ApiController@getAllJobs');
+Route::get('jobs/{id}','ApiController@getOneJob');
+Route::post('new_job','ApiController@createNewJob');
+Route::put('update_jobs/{id}','ApiController@updateJob');
+Route::delete('delete_jobs/{id}','ApiController@deleteJob');
