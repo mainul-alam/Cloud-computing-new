@@ -26,7 +26,9 @@ Route::get('/', 'PagesController@index')->name('welcome');
 
 Route::get('/employee', 'EmployeeController@index')->name('employee')->middleware('employee');
 
+
 Route::get('/employer', 'EmployerController@index')->name('employer')->middleware('employer');
+Route::get('/employer/new_job', 'EmployerController@newJob')->name('employer')->middleware('employer');
 
 
 
