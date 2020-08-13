@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request; # for navigating to different home 
+use User; # for navigating to different home 
+
 class LoginController extends Controller
 {
     /*
@@ -26,7 +29,13 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected function authenticated(Request $request,$user){
+
+        if ($user->type =='employee'){
+            return redirect('/employee');
+        }
+        return redirect('/employer');
+    }
 
     /**
      * Create a new controller instance.

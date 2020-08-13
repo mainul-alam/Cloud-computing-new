@@ -63,19 +63,15 @@
 --------------------------------------------
 
                         <div class="form-group row">
-                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
-
+                            <label for="type" class="col-md-4 control-label text-md-right" >User Type:</label>
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}">
-
-                                @error('type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <select class="form-control" name="type" id="type">
+                            <option value="admin">Admin</option>
+                            <option value="employee">Job Seeker</option>
+                            <option value="employer">Employer</option>
+                            </select>
                             </div>
                         </div>
-
 
 ------------------------------------------
 
