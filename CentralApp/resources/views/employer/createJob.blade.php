@@ -3,7 +3,6 @@
 @section('content')
 
 
-lalalalll llla 
 
 <h1>Create Post</h1>
 {!! Form::open() !!}
