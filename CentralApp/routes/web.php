@@ -29,7 +29,7 @@ Route::get('/employee', 'EmployeeController@index')->name('employee')->middlewar
 
 Route::get('/employer', 'EmployerController@index')->name('employer')->middleware('employer');
 Route::get('/employer/new_job', 'EmployerController@newJob')->name('employer')->middleware('employer');
-
+Route::post('/employer/new_job/post_job','PostsController@create')->name('employer')->middleware('employer');
 
 
 

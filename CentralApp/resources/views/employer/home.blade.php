@@ -7,17 +7,32 @@
             <div class="card">
                 <div class="card-header">This is the employer dashboard</div>
 
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div>
+                        
+                         
+                     </div>
 
-                    {{ __('You are logged in!') }}
                 </div>
+                
             </div>
+        
         </div>
+        <div> Mehedi </div>
+        <div>
+            {{ $jobs }}
+
+            @foreach($jobs as $job)
+            <li> {{ $job }} </li>
+            @endforeach
+          
+        </div>    
     </div>
 </div>
 @endsection

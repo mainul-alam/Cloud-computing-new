@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 use App\Job;
 
 class ApiController extends Controller
 {
     
-    public function getAllJobs()
+    public function getAllJobs($user_id)
     {
-        $job = Job::get()->toJson(JSON_PRETTY_PRINT);
-        return response($job, 200);
+        $jobs = Job::where('user_id', $user_id)->get()->toJson(JSON_PRETTY_PRINT);
+        return response($jobs, 200);
     }
 
-    public function getOneJob($id)
+    public function getJob($id)
     {
         if (Job::where('id', $id)->exists()) {
             $job = Job::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
@@ -29,7 +30,9 @@ class ApiController extends Controller
     
     public function createNewJob(Request $request)
     {
-        $job = new Job;         
+        Log::debug($request->title);
+        $job = new Job;       
+        $job->user_id = $request->user_id;  
         $job->title = $request->title;
         $job->responsibility = $request->responsibility;
         $job->requirements = $request->requirements;

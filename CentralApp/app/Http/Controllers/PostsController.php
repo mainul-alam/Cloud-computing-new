@@ -3,29 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
+
+
 
 class PostsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // $client = new \GuzzleHttp\Client(['base_uri' => 'http://phprestfulapi/api']);
+        
+
+        // $response = $client->request('POST', '/new_job', [
+        //     'form_params' => [
+        //         'title' => $request->input('title'),
+        //         'title' => $request->input('requirements'),
+        //         'requirements' => $request->input('responsibility'),
+        //     ]
+        // ]);ß
+
+        $client = new \GuzzleHttp\Client();
+        
+
+        $response = $client->request('POST', 'http://localhost:8001/api/new_job', [
+            'json' =>  [
+                'title' => $request->input('title'),
+                'responsibility' => $request->input('responsibility'),
+                'requirements' => $request->input('requirements'),
+                'user_id' => Auth::user()->id,
+            ]
+        ]);
+
+      
     }
 
     /**
