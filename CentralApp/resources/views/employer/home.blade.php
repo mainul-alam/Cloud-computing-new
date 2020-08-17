@@ -1,39 +1,21 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">This is the employer dashboard</div>
+@extends('layouts.employer')
 
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <div>
-                        
-                         
-                     </div>
+@section('content2')
 
-                </div>
-                
-            </div>
-        
-        </div>
-        <div> Mehedi </div>
-        <div>
-            {{ $jobs }}
+<div>
+    <h2>Jobs you have posted :</h2>
 
-            @foreach($jobs as $job)
-            <li> {{ $job }} </li>
-            @endforeach
-          
-        </div>    
-    </div>
+    @forelse ($jobs as $job)
+        <h3><a href ="/employer/{{$job->id}}">{{ $job->title }}</a></h3>
+        <small>Cearted on :{{ $job->created_at}}</small>
+    @empty
+        <h3>You have not posted anyjob yet</h3>
+    @endforelse
+         
 </div>
+
+<a class="btn btn-primary" href="/employer/create_new_job" role="button">Create a new job</a>
+
 @endsection
 

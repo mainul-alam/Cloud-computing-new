@@ -27,9 +27,12 @@ Route::get('/', 'PagesController@index')->name('welcome');
 Route::get('/employee', 'EmployeeController@index')->name('employee')->middleware('employee');
 
 
-Route::get('/employer', 'EmployerController@index')->name('employer')->middleware('employer');
-Route::get('/employer/new_job', 'EmployerController@newJob')->name('employer')->middleware('employer');
-Route::post('/employer/new_job/post_job','PostsController@create')->name('employer')->middleware('employer');
+
+
+Route::get('/employer', 'EmployerController@index')->name('R_Home')->middleware('employer');
+Route::get('/employer/create_new_job', 'EmployerController@form')->name('R_newJob_page')->middleware('employer');
+Route::post('/employer/create_new_job', 'EmployerController@create')->name('R_newJob_post')->middleware('employer');
+Route::get('/employer/{id}', 'EmployerController@show')->name('R_JobDetails')->middleware('employer');
 
 
 

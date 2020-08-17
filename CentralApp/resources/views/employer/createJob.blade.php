@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.employer')
 
-@section('content')
+@section('content2')
 
-<h1>Create Post</h1>
-{!! Form::open(['action' => 'PostsController@create', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+<h1>Create a new job</h1>
+{!! Form::open(['action' => 'EmployerController@create', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
         {{Form::label('title', 'Job title :')}}
         {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}

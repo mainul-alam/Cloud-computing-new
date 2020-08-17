@@ -60,23 +60,17 @@
                             </div>
                         </div>
 
---------------------------------------------
 
                         <div class="form-group row">
                             <label for="type" class="col-md-4 control-label text-md-right" >User Type:</label>
                             <div class="col-md-6">
                             <select class="form-control" name="type" id="type">
-                            <option value="admin">Admin</option>
+                            {{-- <option value="admin">Admin</option> --}}
                             <option value="employee">Job Seeker</option>
                             <option value="employer">Employer</option>
                             </select>
                             </div>
                         </div>
-
-------------------------------------------
-
-
-
 
 
 

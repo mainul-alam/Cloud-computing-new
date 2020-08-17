@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Auth;
+
 
 class RegisterController extends Controller
 {
@@ -29,13 +31,20 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    #protected $redirectTo;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    protected function redirectTo(){
+
+        if (Auth::user()->type =='employee'){
+            return redirect('/employee');
+        }
+        return redirect('/employer');
+    }
+    
+
+
+
+
     public function __construct()
     {
         $this->middleware('guest');
@@ -72,4 +81,11 @@ class RegisterController extends Controller
             'type' => $data['type'],
         ]);
     }
+
+
+
+
+
+
+
 }
