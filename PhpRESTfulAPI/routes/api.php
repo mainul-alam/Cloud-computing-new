@@ -19,7 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('jobs/{user_id}','ApiController@getAllJobs');
+Route::get('jobs/{user_id}','ApiController@userGetAllJobs');
+Route::get('jobs','ApiController@getAllJobs');
 Route::get('job/{id}','ApiController@getJob');
 Route::post('new_job','ApiController@createNewJob');
 Route::put('update_jobs/{id}','ApiController@updateJob');

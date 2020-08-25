@@ -10,9 +10,15 @@ use App\Job;
 class ApiController extends Controller
 {
     
-    public function getAllJobs($user_id)
+    public function userGetAllJobs($user_id)
     {
         $jobs = Job::where('user_id', $user_id)->get()->toJson(JSON_PRETTY_PRINT);
+        return response($jobs, 200);
+    }
+
+    public function getAllJobs()
+    {
+        $jobs = Job::get()->toJson(JSON_PRETTY_PRINT);
         return response($jobs, 200);
     }
 

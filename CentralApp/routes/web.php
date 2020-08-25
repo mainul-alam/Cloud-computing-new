@@ -30,11 +30,12 @@ Route::get('/employee', 'EmployeeController@index')->name('employee')->middlewar
 
 
 Route::get('/employer', 'EmployerController@index')->name('R_Home')->middleware('employer');
+Route::get('/employer/all_jobs', 'EmployerController@showAllJobs')->name('R_Home')->middleware('employer');
 Route::get('/employer/create_new_job', 'EmployerController@form')->name('R_newJob_page')->middleware('employer');
 Route::post('/employer/create_new_job', 'EmployerController@create')->name('R_newJob_post')->middleware('employer');
 Route::get('/employer/{id}', 'EmployerController@show')->name('R_JobDetails')->middleware('employer');
-
-
+Route::get('/employer/{id}/edit', 'EmployerController@edit')->name('R_JobDetailsEdit')->middleware('employer');
+Route::put('/employer/{id}/edit', 'EmployerController@update')->name('R_JobDetailsUpdate')->middleware('employer');
 
 
 

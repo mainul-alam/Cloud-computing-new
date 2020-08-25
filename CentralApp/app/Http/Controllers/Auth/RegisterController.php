@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use App\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+ use App\Providers\RouteServiceProvider;
+ use App\User;
+ use Illuminate\Foundation\Auth\RegistersUsers;
+ use Illuminate\Support\Facades\Hash;
+ use Illuminate\Support\Facades\Validator;
+
 
 
 class RegisterController extends Controller
@@ -31,14 +33,14 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    #protected $redirectTo;
+    protected $redirectTo;
 
     protected function redirectTo(){
 
         if (Auth::user()->type =='employee'){
-            return redirect('/employee');
+            return '/employee';
         }
-        return redirect('/employer');
+        return '/employer';
     }
     
 

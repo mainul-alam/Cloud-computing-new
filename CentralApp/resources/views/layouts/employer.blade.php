@@ -10,7 +10,7 @@
                     <nav class="nav nav-pills nav-fill">
                         <a class="nav-item nav-link active" href="/employer">Home</a>
                         <a class="nav-item nav-link" href="#">Profile</a>
-                        <a class="nav-item nav-link" href="#">All JOBS</a>
+                        <a class="nav-item nav-link" href="/employer/all_jobs">All JOBS</a>
                         <a class="nav-item nav-link disabled" href="#">Employer/employee</a>
                     </nav>
                 </div>
