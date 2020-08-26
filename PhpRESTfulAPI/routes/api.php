@@ -23,5 +23,5 @@ Route::get('jobs/{user_id}','ApiController@userGetAllJobs');
 Route::get('jobs','ApiController@getAllJobs');
 Route::get('job/{id}','ApiController@getJob');
 Route::post('new_job','ApiController@createNewJob');
-Route::put('update_jobs/{id}','ApiController@updateJob');
-Route::delete('delete_jobs/{id}','ApiController@deleteJob');
+Route::put('update_job/{id}','ApiController@updateJob');
+Route::delete('delete_job/{id}','ApiController@deleteJob');

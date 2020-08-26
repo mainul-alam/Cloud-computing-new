@@ -1,4 +1,4 @@
-@extends('layouts.employer')
+@extends('layouts.employee')
 
 
 @section('content2')
@@ -7,7 +7,7 @@
     <h2>All the jobs in this website :</h2>
 
     @forelse ($all_jobs as $job)
-        <h3><a href ="/employer/{{$job->id}}">{{ $job->title }}</a></h3>
+        <h3><a href ="/employee/{{$job->id}}">{{ $job->title }}</a></h3>
         <small>Cearted on :{{ $job->created_at}}</small>
         <small>Cearted on :{{ $job->created_at}}</small>
     @empty

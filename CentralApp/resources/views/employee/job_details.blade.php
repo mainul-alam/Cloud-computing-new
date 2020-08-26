@@ -1,4 +1,4 @@
-@extends('layouts.employer')
+@extends('layouts.employee')
 
 @section('content2')
 
@@ -12,7 +12,7 @@
 
 
 @if($job->user_id == Auth::id())
-    <a href="/employer/{{$job->id}}/edit" class="btn btn-primary">EDIT</a>
+    <a href="/employee/{{$job->id}}/edit" class="btn btn-primary">EDIT</a>
     {!!Form::open(['action' => ['EmployerController@destroy',$job->id], 'method' => 'DELETE', 'class' => 'pull-right'])!!}
         {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
     {!!Form::close()!!}

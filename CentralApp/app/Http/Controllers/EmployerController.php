@@ -50,11 +50,11 @@ class EmployerController extends Controller
     public function show($id)
     {
         $job_id = $id;
-        Log::debug($job_id);
+        
         $client = new \GuzzleHttp\Client();
         $response = $client->request('GET', "http://localhost:8001/api/job/$job_id");
         $job_details = json_decode($response->getBody());
-        Log::debug($job_details);
+       
 
 
         return view('employer.job_details')->with('job_details', $job_details);
@@ -90,7 +90,7 @@ class EmployerController extends Controller
         $job_id = $id;
         $client = new \GuzzleHttp\Client();
         
-        $response = $client->request('PUT', "http://localhost:8001/api/update_jobs/$job_id", [
+        $response = $client->request('PUT', "http://localhost:8001/api/update_job/$job_id", [
             'json' =>  [
                 'title' => $request->input('title'),
                 'responsibility' => $request->input('responsibility'),
@@ -106,7 +106,13 @@ class EmployerController extends Controller
 
     public function destroy($id)
     {
-    
+        $job_id = $id;
+        $client = new \GuzzleHttp\Client();
+
+        $response = $client->request('DELETE', "http://localhost:8001/api/delete_job/$job_id");
+
+        return redirect('/employer');
+
     }
 
 
