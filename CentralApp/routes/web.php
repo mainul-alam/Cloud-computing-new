@@ -27,8 +27,11 @@ Route::get('/', 'PagesController@index')->name('welcome');
 Route::get('/employee', 'EmployeeController@index')->name('employee')->middleware('employee');
 Route::get('/employee/all_jobs', 'EmployeeController@showAllJobs')->name('E_All_Jobs')->middleware('employee');
 // Route::get('/employee/{id}', 'EmployeeController@show')->name('R_JobDetails')->middleware('employee');
-Route::get('/employee/cv_view', 'EmployeeController@form')->name('E_newCv_page')->middleware('employee');
-
+Route::get('/employee/all_cvs', 'EmployeeController@showAllCvs')->name('E_All_Cvs')->middleware('employee');
+Route::get('/employee/cv_form', 'EmployeeController@cvform')->name('E_Cv_form')->middleware('employee');
+Route::post('/employee/cv_view', 'EmployeeController@create')->name('E_createCv_post')->middleware('employee');
+Route::delete('/employee/all_cvs/{id}', 'EmployeeController@destroy')->name('E_CV_delete')->middleware('employee');
+// Route::get('/employee/cv_show/{id}', 'EmployeeController@cvShow')->name('E_Cv_show')->middleware('employee');
 
 Route::get('/employer', 'EmployerController@index')->name('R_Home')->middleware('employer');
 Route::get('/employer/all_jobs', 'EmployerController@showAllJobs')->name('R_All_Jobs')->middleware('employer');

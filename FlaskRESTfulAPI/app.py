@@ -8,6 +8,12 @@ app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:@localhost:3306/flas
 db = SQLAlchemy(app)
 
 
+
+@app.route('/')
+def hello_world():
+    return 'FlaskRESTfulAPI'
+
+
 ###Models####
 class CV(db.Model):
     __tablename__ = "cvs"
@@ -91,4 +97,4 @@ def create_cv():
     return make_response(jsonify({"cv": result}),200)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

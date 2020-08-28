@@ -9,7 +9,7 @@
 
                     <nav class="nav nav-pills nav-fill">
                         <a class="nav-item nav-link" href="/employee">Home</a>
-                        <a class="nav-item nav-link" href="/employee/cv_view">CV</a>
+                        <a class="nav-item nav-link" href="/employee/all_cvs">CV</a>
                         <a class="nav-item nav-link" href="/employee/all_jobs">All JOBS</a>
                         <a class="nav-item nav-link disabled" href="#">Job seeker</a>
                     </nav>
